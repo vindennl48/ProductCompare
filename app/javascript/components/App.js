@@ -3,13 +3,22 @@ import PropTypes from "prop-types"
 import styled    from "styled-components";
 import Product   from "./Product";
 
+let Title = styled.div`
+  font-size:        24px;
+  font-weight:      bold;
+  text-align:       center;
+  padding:          10px;
+  background-color: #eee;
+  margin-bottom:    5px;
+`;
 let Wrapper = styled.div`
   display:       grid;
-  grid-template: auto / 1fr 1fr;
+  grid-template: auto / 1fr;
 `;
 
 const winnerStyle = {
-  backgroundColor: '#08ff00',
+  //backgroundColor: '#08ff00',
+  backgroundColor: '#9bdb9f',
 }
 
 class App extends React.Component {
@@ -37,6 +46,7 @@ class App extends React.Component {
     const { prod1, prod2 } = this.state
     return (
       <Wrapper>
+        <Title>Product Compare</Title>
         <Product
           id='prod1'
           onUpdate={this.handleUpdate}

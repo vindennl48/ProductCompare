@@ -3,15 +3,20 @@ import PropTypes from "prop-types"
 import styled    from "styled-components"
 
 const Wrapper = styled.div`
-  display:         grid;
-  grid-template:   auto / 1fr;
-  grid-gap:        5px;
-  padding:         10px;
+  display:       grid;
+  grid-template: auto / 70px auto;
+  grid-gap:      5px;
+  align-items:   center;
+  padding:       10px;
+  margin:        10px;
+  border-radius: 10px;
+  box-shadow:    2px 4px 10px black;
+  background-color: #eee;
 `;
 const Input = styled.input`
   box-sizing:    border-box;
   width:         100%;
-  border:        1px solid #ccc;
+  border:        1px solid #aaa;
   border-radius: 5px;
   font-size:     18px;
   text-align:    center;
@@ -23,6 +28,10 @@ const Input = styled.input`
 `;
 const Label = styled.label`
   text-align: center;
+  //grid-column: span 2;
+`;
+const Bold = styled.span`
+  font-weight: bold;
 `;
 
 class Product extends React.Component {
@@ -57,17 +66,20 @@ class Product extends React.Component {
     const { price, quantity, perUnit } = this.state
     return (
       <Wrapper {...this.props}>
+        <label><Bold>Price:</Bold></label>
         <Input
           onChange    = {this.handleUpdate}
           placeholder = "price"
           value       = {price ? price : ''}
         />
+        <label><Bold>Quantity:</Bold></label>
         <Input
           onChange    = {this.handleUpdate}
           placeholder = "quantity"
           value       = {quantity ? quantity : ''}
         />
-        <Label>Per Unit: ${perUnit.toFixed(2)}</Label>
+        <label></label>
+        <Label><Bold>Per Unit: </Bold>${perUnit.toFixed(2)}</Label>
       </Wrapper>
     )
   }
